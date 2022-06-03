@@ -1,0 +1,29 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_login_style.css' %}">
+<form method="post" action="/customer/authenticate/">
+    {% csrf_token %}
+    <div class="wrapper">
+        <div class="title">Login</div>
+        {% for message in messages %}
+        <p class="message">{{message}}</p>
+        {% endfor %}
+        <div class="form">
+            {% csrf_token %}
+            <div class="inputfield">
+                <label>User Id:</label>
+                <input type="text" class="input" name="username" placeholder="User Name" required>
+            </div>
+            <div class="inputfield">
+                <label>Password:</label>
+                <input type="password" class="input" name="password" placeholder="Password" required>
+            </div>
+            <div class="inputfield">
+                <input type="submit" value="Login" class="btn">
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

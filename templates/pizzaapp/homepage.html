@@ -1,0 +1,37 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_style.css' %}">
+<form method="post" action="/signupuser/">
+    {% csrf_token %}
+    <div class="wrapper">
+        <div class="title">Sign Up</div>
+        {% for message in messages %}
+        <p class="message">{{message}}</p>
+        {% endfor %}
+        <div class="form">
+            <div class="inputfield">
+                <label>User Id:</label>
+                <input type="text" class="input" name="username" placeholder="User Name" required>
+            </div>
+            <div class="inputfield">
+                <label>Password:</label>
+                <input type="password" class="input" name="password" placeholder="Password" required>
+            </div>
+            <div class="inputfield">
+                <label>Phone Number:</label>
+                <input type="text" class="input" name="phoneno" placeholder="Phone Number" required>
+            </div>
+            <div class="inputfield">
+                <input type="submit" value="Register" class="btn">
+            </div>
+            <div class="Login">
+                <p>Already have Account?<br>
+                    <a class="btn" href="/loginuser/">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

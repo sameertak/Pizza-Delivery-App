@@ -1,0 +1,33 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/admin_style.css' %}">
+<div class="container">
+    <table class = "form" align="left" cellpadding="10">
+        <form method="POST" action="/adminauthenticate/">
+            {% csrf_token %}
+            <tr>
+                <td><h2>ADMIN</h2></td>
+            </tr>
+
+            <tr>
+                <td><h5>User ID: <input type="text" placeholder="Username" name="username"></h5></td>
+            </tr>
+
+            <tr>
+                <td><h5>Password: <input type="password" placeholder="Password" name="password"></h5></td>
+            </tr>
+
+            <tr>
+                <td><button type="submit" class="btn btn-success">Log In</button></td>
+            </tr>
+        </form>
+        <tr>
+            {% for message in messages %}
+            <td><p>{{message}}</p></td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

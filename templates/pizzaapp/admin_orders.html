@@ -1,0 +1,17 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_orders.css' %}">
+<h1 class="orders">My Orders</h1>
+{% for order in orders %}
+<div class="alert alert-warning" role="alert">
+    <p>Name: {{order.username}}</p>
+    <p>Phone Number: {{order.phoneno}}</p>
+    <p>Address: {{order.address}}</p>
+    <p>Ordered items: <br> {{order.ordered_items}} <br> </p>
+    <p>Order Status: {{order.status}}</p>
+    <a href="/acceptorder/{{order.id}}/" class="btn btn-success">Accept</a>
+    <a href="/declineorder/{{order.id}}/" class="btn btn-danger">Decline</a>
+</div>
+{% endfor %}
+{% endblock %}

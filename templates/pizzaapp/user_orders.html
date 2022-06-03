@@ -1,0 +1,16 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_orders.css' %}">
+<h1 class="orders">My Orders</h1>
+
+{% for order in orders %}
+<div class="alert alert-warning" role="alert">
+    <p>{{order.username}}</p>
+    <p>{{order.phoneno}}</p>
+    <p>{{order.address}}</p>
+    <p>{{order.ordered_items}}</p>
+    <p>Order Status: {{order.status}}</p>
+</div>
+{% endfor %}
+{% endblock %}

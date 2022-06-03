@@ -1,0 +1,40 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/welcome_user.css' %}">
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="nav-item" style="text-decoration: none; color:black" href="/userorders/">My Orders</a>
+        <a class="navbar-brand">Welcome {{username}}!</a>
+        <a class="btn btn-danger" href="/userlogout">Log Out</a>
+    </div>
+</nav>
+
+<div class="header"></div>
+<div class="inner">
+    <span><h3>BUY BEST QUALITY PIZZAS</h3></span>
+</div>
+
+{% for message in messages %}
+<p class="message">{{message}}</p>
+{% endfor %}
+<form class="form" method="post" action="/placeorder/">
+    {% csrf_token %}
+<div class="container">
+    {% for pizza in pizzas %}
+    <div class="HoverDiv">
+        <img src="{% static 'img/pizza3.jpg' %}">
+    </div>
+        <div class="new_container">
+            <p class="row"><b><i>{{pizza.name}}</i></b> <span class="tab"></span><i>Price: {{pizza.price}} </i><span class="tab"></span>
+                Quantity: <input class="Num" type="number" min="0" max="10" value="0" name="{{pizza.id}}"></p>
+        </div>
+    {% endfor %}
+    <span>Address:</span>
+    <input type= "text"  class="Address" name="address" required> <br>
+    <input type="submit" class="btn btn-success" value="Place Order!">
+</div>
+<div class="address">
+</div>
+</form>
+{% endblock %}

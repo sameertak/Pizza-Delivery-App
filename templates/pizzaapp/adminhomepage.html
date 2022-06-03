@@ -1,0 +1,38 @@
+{% extends '__base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/admin_page.css' %}">
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="nav-item" href="/adminorders/" style="text-decoration: none; color:black">All Orders</a>
+        <a class="navbar-brand">Welcome ADMIN!</a>
+        <a class="btn btn-danger" href="/adminlogout">Log Out</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="center">
+    <form class="form" method="post" action="/addpizza/">
+        {% csrf_token %}
+        <input type="text" placeholder="Pizza Name" class="form-control" name="pizza" required>
+        <input type="text" placeholder="Price" class="form-control" name="price" required>
+        <input type="submit" value="Add" name="" class="btn btn-success">
+    </form>
+
+<table class="data">
+    <tr>
+        <th>Pizza Name</th>
+        <th>Price</th>
+        <th>Delete</th>
+    </tr>
+    {% for pizza in pizzas %}
+    <tr>
+        <td>{{pizza.name}}</td>
+        <td>{{pizza.price}}</td>
+        <td><a href="/deletepizza/{{pizza.id}}/" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    </div>
+</div>
+{% endblock %}

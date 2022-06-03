@@ -4,4 +4,5 @@ Made a Website with Crud functionalities. Here the items can be updated at admin
 Before using make sure you edit the Admin name and password in the Database or you can use this: 
 
 username : admin
+
 password : sameertak

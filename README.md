@@ -2,7 +2,7 @@
 The Web Application (Django in backend) has all the features needed for the connection between food provider (here Pizza Store) and the customers.
 
 -------------------------------------------------------
-#Features:-
+Features:-
 -------------------------------------------------------
       1. User can Signup/Register for their account.
       2. The Password is Hash Protected stored in SQLite.
@@ -14,7 +14,7 @@ The Web Application (Django in backend) has all the features needed for the conn
          (which would be reflected on the user's page).
       
 -----------------------------------------------------------
-#How to use:-
+How to use:-
 -----------------------------------------------------------
       1. Clone the files, or download the files.
       2. Install Django package (pip install django).
